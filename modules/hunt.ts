@@ -7,7 +7,7 @@ import path from 'node:path';
 // lv hunt - Săn bắn 1 lần
 export const prefixHunt: PrefixCommand = {
   name: 'hunt',
-  description: 'Săn bắn sinh vật (cooldown 10 phút)',
+  description: 'Săn bắn sinh vật (cooldown 2 phút)',
   async execute(message) {
     const store = getStore();
     const cooldownCheck = store.checkCooldown(message.author.id, 'hunt');
@@ -64,6 +64,9 @@ export const prefixHunt: PrefixCommand = {
     let lootMessage = '';
     
     if (success) {
+      // Random KG từ 1 - 100 KG
+      const kg = Math.floor(1 + Math.random() * 100);
+      
       // Tính reward
       reward = creatureReward.min + Math.floor(Math.random() * (creatureReward.max - creatureReward.min + 1));
       
@@ -81,11 +84,11 @@ export const prefixHunt: PrefixCommand = {
       // Thêm loot vào inventory
       store.addItemToInventory(message.author.id, 'huntItems', creatureLoot, 1);
       
-      lootMessage = `\n💰 +${finalReward} LVC\n🥩 +1 ${creatureLoot}`;
+      lootMessage = `\n💰 +${finalReward} LVC\n🥩 +1 ${creatureLoot} (${kg} KG)`;
     }
     
     // Set cooldown
-    store.setCooldown(message.author.id, 'hunt', 10);
+    store.setCooldown(message.author.id, 'hunt', 2);
     
     // Cộng XP
     const xpResult = store.addXP(message.author.id, 15);

@@ -5,7 +5,7 @@ import { getStore } from '../store/store.js';
 // lv work - Làm việc kiếm tiền
 export const prefixWork: PrefixCommand = {
   name: 'work',
-  description: 'Làm việc kiếm LVC (cooldown 30 phút)',
+  description: 'Làm việc kiếm LVC (cooldown 1 giờ)',
   async execute(message) {
     const store = getStore();
     const cooldownCheck = store.checkCooldown(message.author.id, 'work');
@@ -17,8 +17,8 @@ export const prefixWork: PrefixCommand = {
     
     const user = store.getUser(message.author.id);
     
-    // Tính reward: 50-100 LVC + level bonus
-    const baseReward = 50 + Math.floor(Math.random() * 51); // 50-100
+    // Tính reward: 100-999 LVC + level bonus
+    const baseReward = 100 + Math.floor(Math.random() * 900); // 100-999
     const levelBonus = user.level * 5; // +5 LVC per level
     const totalReward = baseReward + levelBonus;
     
@@ -32,7 +32,7 @@ export const prefixWork: PrefixCommand = {
     }
     
     user.balance += finalReward;
-    store.setCooldown(message.author.id, 'work', 30);
+    store.setCooldown(message.author.id, 'work', 60); // 1 giờ = 60 phút
     
     // Cộng XP
     const xpResult = store.addXP(message.author.id, 10);
@@ -44,7 +44,7 @@ export const prefixWork: PrefixCommand = {
       .addFields(
         { name: '💰 Thu nhập', value: `${finalReward} LVC`, inline: true },
         { name: '📊 Chi tiết', value: `Cơ bản: ${baseReward} LVC\nLevel bonus: +${levelBonus} LVC`, inline: true },
-        { name: '⏰ Cooldown', value: '30 phút', inline: true }
+        { name: '⏰ Cooldown', value: '1 giờ', inline: true }
       )
       .setTimestamp();
     

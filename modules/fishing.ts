@@ -98,12 +98,15 @@ export const prefixFish: PrefixCommand = {
       const success = Math.random() * 100 < baseCatchRate;
       
       if (success) {
+        // Random KG từ 0.1 - 100 KG
+        const kg = Math.round((0.1 + Math.random() * 99.9) * 10) / 10; // Làm tròn 1 chữ số thập phân
+        
         result = `${fishEmoji} ${fishName}`;
         reward = fishReward.min + Math.floor(Math.random() * (fishReward.max - fishReward.min + 1));
         
         // Thêm cá vào inventory
         store.addItemToInventory(message.author.id, 'fish', fishKey, 1);
-        lootMessage = `💰 +${reward} LVC\n🐟 +1 ${fishKey}`;
+        lootMessage = `💰 +${reward} LVC\n🐟 +1 ${fishKey} (${kg} KG)`;
       } else {
         result = '🌊 Không câu được gì';
         reward = 0;

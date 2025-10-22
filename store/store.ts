@@ -168,7 +168,7 @@ export class Store {
     }
     u.daily.last = now;
 
-    let reward = 100;
+    let reward = 100; // Base reward 100 LVC
     if (u.daily.streak === 2) reward = 200;
     else if (u.daily.streak === 3) reward = 300;
     else if (u.daily.streak > 7) reward = Math.floor(700 + Math.random() * (1999 - 700 + 1));
@@ -533,21 +533,24 @@ export class Store {
     return { success: true, message: `Đã trồng ${cropConfig.name}. Thu hoạch sau ${Math.ceil(actualGrowTime / 60000)} phút.` };
   }
 
-  harvestCrop(userId: string): { success: boolean; message: string; reward: number } {
+  harvestCrop(userId: string): { success: boolean; message: string; reward: number; kg: number } {
     const user = this.getUser(userId);
     
     if (!user.farm.plantedCrop.type) {
-      return { success: false, message: 'Không có cây nào để thu hoạch.', reward: 0 };
+      return { success: false, message: 'Không có cây nào để thu hoạch.', reward: 0, kg: 0 };
     }
     
     const now = Date.now();
     if (now < user.farm.plantedCrop.harvestAt!) {
       const remainingMs = user.farm.plantedCrop.harvestAt! - now;
-      return { success: false, message: `Cây chưa chín. Còn ${Math.ceil(remainingMs / 60000)} phút.`, reward: 0 };
+      return { success: false, message: `Cây chưa chín. Còn ${Math.ceil(remainingMs / 60000)} phút.`, reward: 0, kg: 0 };
     }
     
     const gameConfig = JSON.parse(readFileSync(path.join(process.cwd(), 'data/game_config.json'), 'utf8'));
     const cropConfig = gameConfig.crops[user.farm.plantedCrop.type];
+    
+    // Random KG từ 0.1 - 100 KG
+    const kg = Math.round((0.1 + Math.random() * 99.9) * 10) / 10; // Làm tròn 1 chữ số thập phân
     
     // Tính reward với bonus 10-30%
     const bonusPercent = 10 + Math.random() * 20; // 10-30%
@@ -565,7 +568,7 @@ export class Store {
     };
     
     this.save();
-    return { success: true, message: `Thu hoạch thành công! +${reward} LVC (+${Math.floor(bonusPercent)}% bonus).`, reward };
+    return { success: true, message: `Thu hoạch thành công! +${reward} LVC (+${Math.floor(bonusPercent)}% bonus). Thu được ${kg} KG ${cropConfig.name}.`, reward, kg };
   }
 
   upgradeFarm(userId: string): { success: boolean; message: string } {

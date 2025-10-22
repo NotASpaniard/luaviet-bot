@@ -107,8 +107,22 @@ async function main(): Promise<void> {
     const [name, ...args] = withoutPrefix.split(/\s+/);
     const command = (client as any).prefixCommands.get(name.toLowerCase());
     if (!command) return;
+    
+    // Danh sách các lệnh admin cần auto delete
+    const adminCommands = ['ga', 'reroll', 'end', 'glist', 'rn', 'lock', 'unlock', 'clear'];
+    const isAdminCommand = adminCommands.includes(name.toLowerCase());
+    
     try {
       await command.execute(message, args);
+      
+      // Auto delete lệnh admin sau khi thực hiện
+      if (isAdminCommand) {
+        try {
+          await message.delete();
+        } catch (error) {
+          console.error('Error deleting admin command message:', error);
+        }
+      }
     } catch (error) {
       console.error(error);
       await message.reply('Đã xảy ra lỗi khi chạy lệnh.');

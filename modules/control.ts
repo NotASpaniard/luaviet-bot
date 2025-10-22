@@ -73,4 +73,28 @@ export const slashStatus: SlashCommand = {
   }
 };
 
-export const slashes: SlashCommand[] = [slashTurnOff, slashReset, slashStatus];
+// Lệnh ping (chỉ admin)
+export const slashPing: SlashCommand = {
+  data: new SlashCommandBuilder()
+    .setName('ping')
+    .setDescription('Kiểm tra độ trễ của bot (chỉ admin)')
+    .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
+  async execute(interaction) {
+    const sent = await interaction.reply({ content: 'Pinging...', fetchReply: true });
+    const roundtripLatency = sent.createdTimestamp - interaction.createdTimestamp;
+    const websocketLatency = Math.round(interaction.client.ws.ping);
+    
+    const embed = new EmbedBuilder()
+      .setTitle('🏓 Pong!')
+      .setColor('#00FF00')
+      .addFields(
+        { name: '📡 Roundtrip Latency', value: `${roundtripLatency}ms`, inline: true },
+        { name: '💓 WebSocket Latency', value: `${websocketLatency}ms`, inline: true }
+      )
+      .setTimestamp();
+    
+    await interaction.editReply({ content: '', embeds: [embed] });
+  }
+};
+
+export const slashes: SlashCommand[] = [slashTurnOff, slashReset, slashStatus, slashPing];

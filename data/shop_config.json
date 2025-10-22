@@ -2,47 +2,65 @@
     "seeds": {
         "lua_seed": {
             "name": "Hạt Lúa",
-            "price": 50,
+            "price": 10,
             "levelRequired": 1,
-            "description": "Hạt giống lúa - trồng 1 giờ, thu hoạch 50 LVC"
+            "description": "Hạt giống lúa - trồng 5 phút, thu hoạch 50 LVC"
         },
         "ngo_seed": {
             "name": "Hạt Ngô",
-            "price": 80,
+            "price": 50,
             "levelRequired": 2,
-            "description": "Hạt giống ngô - trồng 2 giờ, thu hoạch 80 LVC"
+            "description": "Hạt giống ngô - trồng 30 phút, thu hoạch 80 LVC"
         },
-        "ca_rot_seed": {
+        "carot_seed": {
             "name": "Hạt Cà Rốt",
-            "price": 120,
+            "price": 150,
             "levelRequired": 3,
-            "description": "Hạt giống cà rốt - trồng 3 giờ, thu hoạch 120 LVC"
+            "description": "Hạt giống cà rốt - trồng 1 giờ, thu hoạch 120 LVC"
         },
-        "ca_chua_seed": {
-            "name": "Hạt Cà Chua",
+        "mia_seed": {
+            "name": "Hạt Mía",
             "price": 200,
             "levelRequired": 4,
-            "description": "Hạt giống cà chua - trồng 4 giờ, thu hoạch 200 LVC"
+            "description": "Hạt giống mía - trồng 2 giờ, thu hoạch 200 LVC"
+        },
+        "cachua_seed": {
+            "name": "Hạt Cà Chua",
+            "price": 250,
+            "levelRequired": 5,
+            "description": "Hạt giống cà chua - trồng 5 giờ, thu hoạch 300 LVC"
         }
     },
     "weapons": {
-        "cung": {
-            "name": "Cung",
-            "price": 300,
+        "cung_go": {
+            "name": "Cung Gỗ",
+            "price": 0,
             "levelRequired": 1,
-            "description": "Cung săn cơ bản - tăng 5% tỷ lệ săn thành công"
+            "description": "Cung săn cơ bản miễn phí"
         },
-        "noi_long_cung": {
-            "name": "Nỏ Long Cung",
-            "price": 600,
+        "cung_sat": {
+            "name": "Cung Sắt",
+            "price": 800,
             "levelRequired": 2,
-            "description": "Nỏ săn nâng cao - tăng 10% tỷ lệ săn thành công"
+            "description": "Cung săn nâng cao - tăng 10% tỷ lệ săn thành công"
         },
-        "thuan_phong_cung": {
-            "name": "Thuận Phong Cung",
-            "price": 1200,
+        "cung_bac": {
+            "name": "Cung Bạc",
+            "price": 2500,
             "levelRequired": 3,
-            "description": "Cung săn huyền thoại - tăng 15% tỷ lệ săn thành công"
+            "description": "Cung săn cao cấp - tăng 20% tỷ lệ săn thành công"
+        },
+        "cung_vang": {
+            "name": "Cung Vàng",
+            "price": 6000,
+            "levelRequired": 4,
+            "description": "Cung săn huyền thoại - tăng 30% tỷ lệ săn thành công"
+        },
+        "cung_than": {
+            "name": "Cung Thần",
+            "price": 15000,
+            "levelRequired": 5,
+            "description": "Cung săn thần thánh - tăng 50% tỷ lệ săn thành công"
         }
     },
     "fishing_gear": {
@@ -58,11 +76,53 @@
             "levelRequired": 2,
             "description": "Cần câu sắt nâng cao - tăng 10% cơ hội câu cá hiếm"
         },
-        "moi_cau": {
-            "name": "Mồi Câu",
-            "price": 50,
+        "can_cau_bac": {
+            "name": "Cần Câu Bạc",
+            "price": 1200,
+            "levelRequired": 3,
+            "description": "Cần câu bạc cao cấp - tăng 20% cơ hội câu cá hiếm"
+        },
+        "can_cau_vang": {
+            "name": "Cần Câu Vàng",
+            "price": 3000,
+            "levelRequired": 4,
+            "description": "Cần câu vàng huyền thoại - tăng 30% cơ hội câu cá hiếm"
+        },
+        "can_cau_kim_cuong": {
+            "name": "Cần Câu Kim Cương",
+            "price": 8000,
+            "levelRequired": 5,
+            "description": "Cần câu kim cương thần thánh - tăng 50% cơ hội câu cá hiếm"
+        },
+        "moi_cau_com": {
+            "name": "Mồi Câu Cơm",
+            "price": 10,
             "levelRequired": 1,
-            "description": "Mồi câu - tăng 15% cơ hội câu cá hiếm (tiêu hao sau mỗi lần)"
+            "description": "Mồi câu cơ bản - tăng 5% cơ hội câu cá (tiêu hao sau mỗi lần)"
+        },
+        "moi_cau_giun": {
+            "name": "Mồi Câu Giun",
+            "price": 50,
+            "levelRequired": 2,
+            "description": "Mồi câu giun - tăng 10% cơ hội câu cá (tiêu hao sau mỗi lần)"
+        },
+        "moi_cau_tom": {
+            "name": "Mồi Câu Tôm",
+            "price": 150,
+            "levelRequired": 3,
+            "description": "Mồi câu tôm - tăng 20% cơ hội câu cá (tiêu hao sau mỗi lần)"
+        },
+        "moi_cau_ca_chien": {
+            "name": "Mồi Câu Cá Chiên",
+            "price": 400,
+            "levelRequired": 4,
+            "description": "Mồi câu cá chiên - tăng 30% cơ hội câu cá (tiêu hao sau mỗi lần)"
+        },
+        "moi_cau_linh": {
+            "name": "Mồi Câu Linh",
+            "price": 1000,
+            "levelRequired": 5,
+            "description": "Mồi câu linh thiêng - tăng 50% cơ hội câu cá (tiêu hao sau mỗi lần)"
         }
     },
     "roles": {

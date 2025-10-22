@@ -2,30 +2,37 @@
     "crops": {
         "lua": {
             "name": "Lúa",
-            "growTime": 60,
+            "growTime": 5,
             "baseReward": 50,
             "levelRequired": 1,
             "emoji": "🌾"
         },
         "ngo": {
             "name": "Ngô",
-            "growTime": 120,
+            "growTime": 30,
             "baseReward": 80,
             "levelRequired": 2,
             "emoji": "🌽"
         },
-        "ca_rot": {
+        "carot": {
             "name": "Cà Rốt",
-            "growTime": 180,
+            "growTime": 60,
             "baseReward": 120,
             "levelRequired": 3,
             "emoji": "🥕"
         },
-        "ca_chua": {
-            "name": "Cà Chua",
-            "growTime": 240,
+        "mia": {
+            "name": "Mía",
+            "growTime": 120,
             "baseReward": 200,
             "levelRequired": 4,
+            "emoji": "🎋"
+        },
+        "cachua": {
+            "name": "Cà Chua",
+            "growTime": 300,
+            "baseReward": 300,
+            "levelRequired": 5,
             "emoji": "🍅"
         }
     },
@@ -80,47 +87,54 @@
         }
     },
     "fish_types": {
-        "ca_me": {
-            "name": "Cá Mè",
-            "catchRate": 50,
+        "ca_bong": {
+            "name": "Cá Bống",
+            "catchRate": 25,
             "reward": { "min": 20, "max": 40 },
             "levelRequired": 1,
             "emoji": "🐟"
         },
-        "ca_ro": {
-            "name": "Cá Rô",
-            "catchRate": 30,
+        "ca_kim": {
+            "name": "Cá Kim",
+            "catchRate": 25,
             "reward": { "min": 25, "max": 45 },
             "levelRequired": 1,
             "emoji": "🐠"
         },
-        "ca_chep": {
-            "name": "Cá Chép",
-            "catchRate": 15,
+        "ca_ngu": {
+            "name": "Cá Ngừ",
+            "catchRate": 20,
             "reward": { "min": 50, "max": 80 },
             "levelRequired": 2,
             "emoji": "🐡"
         },
-        "ca_tre": {
-            "name": "Cá Trê",
+        "rac": {
+            "name": "Rác",
             "catchRate": 10,
-            "reward": { "min": 60, "max": 90 },
+            "reward": { "min": 0, "max": 0 },
+            "levelRequired": 1,
+            "emoji": "🗑️"
+        },
+        "ca_hoi": {
+            "name": "Cá Hồi",
+            "catchRate": 10,
+            "reward": { "min": 100, "max": 150 },
             "levelRequired": 3,
             "emoji": "🐋"
         },
-        "ca_loc": {
-            "name": "Cá Lóc",
-            "catchRate": 4,
-            "reward": { "min": 100, "max": 150 },
+        "ca_map": {
+            "name": "Cá Mập",
+            "catchRate": 8,
+            "reward": { "min": 200, "max": 300 },
             "levelRequired": 4,
             "emoji": "🦈"
         },
-        "ca_anh_vu": {
-            "name": "Cá Anh Vũ",
-            "catchRate": 1,
-            "reward": { "min": 200, "max": 300 },
+        "ruong": {
+            "name": "Rương",
+            "catchRate": 2,
+            "reward": { "min": 500, "max": 1000 },
             "levelRequired": 5,
-            "emoji": "🐬"
+            "emoji": "💎"
         }
     },
     "special_events": {
@@ -146,8 +160,8 @@
         "farm_harvest": 20
     },
     "cooldowns": {
-        "work": 30,
-        "hunt": 10,
+        "work": 60,
+        "hunt": 2,
         "fish": 5,
         "weekly": 10080
     },

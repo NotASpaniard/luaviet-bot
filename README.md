@@ -5,30 +5,33 @@ Một Discord bot đa chức năng với hệ thống kinh tế LVC, nông trạ
 ## ✨ Tính Năng Chính
 
 ### 💰 Hệ Thống Kinh Tế (ECONOMY)
-- **Làm việc** kiếm tiền với cooldown 30 phút (50-100 LVC + level bonus)
-- **Quà hàng ngày** với streak bonus (200 LVC + streak bonus)
+- **Làm việc** kiếm tiền với cooldown 1 giờ (100-999 LVC + level bonus)
+- **Quà hàng ngày** với streak bonus (100 LVC + streak bonus)
 - **Quà hàng tuần** với phần thưởng lớn
 - **Chuyển tiền** giữa người dùng
 - **Bảng xếp hạng** top 10 người giàu nhất
 - **Hệ thống level** dựa trên XP từ các hoạt động
 
 ### 🌾 Hệ Thống Nông Trại (FARM)
-- Trồng 4 loại cây với thời gian và lợi nhuận khác nhau
-- Mua hạt giống từ cửa hàng
-- Thu hoạch với bonus ngẫu nhiên 10-30%
+- Trồng 5 loại cây với thời gian và lợi nhuận khác nhau
+- Mua hạt giống từ cửa hàng với giá mới
+- Thu hoạch với bonus ngẫu nhiên 10-30% và random KG từ 0.1-100 KG
 - Nâng cấp nông trại để trồng cây level cao hơn
+- Mỗi nông trại có 3 mảnh đất, mỗi mảnh đất có 5 miếng để trồng từng cây
 
 ### 🏹 Hệ Thống Săn Bắn (HUNT)
 - Săn 6 loại sinh vật với tỷ lệ thành công khác nhau
+- Cooldown ngắn 2 phút cho mỗi lần săn
+- Khi săn sẽ random số KG của động vật từ 1-100 KG
 - Trang bị vũ khí để tăng tỷ lệ săn thành công
 - Nhận vật phẩm đặc biệt từ săn bắn
 - Sử dụng bùa phép để tăng cơ hội
 
 ### 🎣 Hệ Thống Câu Cá (FISHING)
-- Câu 6 loại cá với giá trị khác nhau
-- Sự kiện đặc biệt: Rương kho báu, rác,...
-- Trang bị cần câu và mồi câu
+- Câu 7 loại cá với giá trị khác nhau: Cá Bống (25%), Cá Kim (25%), Cá Ngừ (20%), Rác (10%), Cá Hồi (10%), Cá Mập (8%), Rương (2%)
 - Cooldown ngắn 5 phút cho mỗi lần câu
+- Đối với các loại cá khi câu random số KG từ 0.1-100 KG
+- Trang bị cần câu và mồi câu
 
 ### 🛒 Hệ Thống Cửa Hàng (SHOP)
 - 4 cửa hàng chính: Hạt giống, Vũ khí, Câu cá, Role
@@ -103,10 +106,10 @@ npm run register
 ### 💰 LỆNH KINH TẾ
 | Lệnh | Chức năng | Cooldown | Ví dụ |
 |------|-----------|----------|-------|
-| `lv work` | Làm việc kiếm LVC | 30 phút | `lv work` |
+| `lv work` | Làm việc kiếm LVC | 1 giờ | `lv work` |
 | `lv daily` | Nhận quà hàng ngày | 24 giờ | `lv daily` |
 | `lv weekly` | Nhận quà hàng tuần | 7 ngày | `lv weekly` |
-| `lv profile` / `lv bal` | Xem số dư & profile | - | `lv profile` |
+| `lv profile` / `lv cash` | Xem số dư & profile | - | `lv cash` |
 | `lv give @user số_tiền` | Chuyển tiền cho user | - | `lv give @John 100` |
 | `lv leaderboard` / `lv top` | Xem top 10 giàu nhất | - | `lv top` |
 | `lv bet số_tiền` | Đặt cược may rủi (50/50) | - | `lv bet 100` |
@@ -121,15 +124,16 @@ npm run register
 | `lv farm upgrade` | Nâng cấp nông trại | `lv farm upgrade` |
 
 **Cây trồng có sẵn:**
-- **lua** (Lúa) - 1 giờ - 50 LVC - Level 1
-- **ngo** (Ngô) - 2 giờ - 80 LVC - Level 2
-- **ca_rot** (Cà rốt) - 3 giờ - 120 LVC - Level 3
-- **ca_chua** (Cà chua) - 4 giờ - 200 LVC - Level 4
+- **lua** (Lúa) - 5 phút - 50 LVC - Level 1
+- **ngo** (Ngô) - 30 phút - 80 LVC - Level 2
+- **carot** (Cà rốt) - 1 giờ - 120 LVC - Level 3
+- **mia** (Mía) - 2 giờ - 200 LVC - Level 4
+- **cachua** (Cà chua) - 5 giờ - 300 LVC - Level 5
 
 ### 🏹 LỆNH SĂN BẮN
 | Lệnh | Chức năng | Cooldown | Ví dụ |
 |------|-----------|----------|-------|
-| `lv hunt` | Đi săn một lượt | 10 phút | `lv hunt` |
+| `lv hunt` | Đi săn một lượt | 2 phút | `lv hunt` |
 | `lv hunt equip tên_vũ_khí` | Trang bị vũ khí | - | `lv hunt equip cung` |
 | `lv hunt inventory` | Xem đồ săn bắn | - | `lv hunt inv` |
 | `lv hunt use tên_bùa` | Dùng bùa phép | - | `lv hunt use lucky_charm` |
@@ -171,11 +175,13 @@ npm run register
 
 **Vật phẩm cửa hàng:**
 
-🌾 **Hạt giống:** lua_seed (50 LVC), ngo_seed (80 LVC), ca_rot_seed (120 LVC)
+🌾 **Hạt giống:** lua_seed (10 LVC), ngo_seed (50 LVC), carot_seed (150 LVC), mia_seed (200 LVC), cachua_seed (250 LVC)
 
-⚔️ **Vũ khí:** cung (300 LVC), noi_long_cung (600 LVC), thuan_phong_cung (1200 LVC)
+⚔️ **Vũ khí:** cung_go (0 LVC), cung_sat (800 LVC), cung_bac (2,500 LVC), cung_vang (6,000 LVC), cung_than (15,000 LVC)
 
-🎣 **Đồ câu cá:** can_cau_tre (200 LVC), can_cau_sat (500 LVC), moi_cau (50 LVC)
+🎣 **Đồ câu cá:** can_cau_tre (200 LVC), can_cau_sat (500 LVC), can_cau_bac (1,200 LVC), can_cau_vang (3,000 LVC), can_cau_kim_cuong (8,000 LVC)
+
+🪱 **Mồi câu:** moi_cau_com (10 LVC), moi_cau_giun (50 LVC), moi_cau_tom (150 LVC), moi_cau_ca_chien (400 LVC), moi_cau_linh (1,000 LVC)
 
 🎭 **Role:** nong_dan (5000 LVC), tho_san (8000 LVC), danh_ca (6000 LVC)
 
@@ -188,12 +194,30 @@ npm run register
 ### ⚡ LỆNH ADMIN (Chỉ Admin)
 | Lệnh | Chức năng | Ví dụ |
 |------|-----------|-------|
+| `/ping` | Kiểm tra độ trễ của bot | `/ping` |
 | `/add @user số_tiền` | Thêm tiền cho user | `/add @John 1000` |
 | `/remove @user số_tiền` | Trừ tiền user | `/remove @John 500` |
 | `/resetmoney @user` | Reset tiền user | `/resetmoney @John` |
 | `/turnoff` | Tắt bot | `/turnoff` |
 | `/reset` | Khởi động lại bot | `/reset` |
 | `/status` | Kiểm tra trạng thái bot | `/status` |
+
+### 🎉 LỆNH GIVEAWAY (Chỉ Role Giveaway / Admin)
+| Lệnh | Chức năng | Ví dụ |
+|------|-----------|-------|
+| `lv ga <số giờ> <số người win> <nội dung>` | Tạo một giveaway mới | `lv ga 10h 1 100k OwO` |
+| `lv ga <số giờ> <số người win> <role yêu cầu> <nội dung>` | Tạo một giveaway mới theo role yêu cầu | `lv ga 10h 1 @cư_dân 100k OwO` |
+| `lv reroll <id_message>` | Chọn lại người thắng cuộc | `lv reroll 01234567890123` |
+| `lv end <id_message>` | Kết thúc một giveaway sớm | `lv end 01234567890123` |
+| `lv glist` | Xem các giveaway đang diễn ra | `lv glist` |
+
+### ⚡ LỆNH FLASH (Chỉ Admin)
+| Lệnh | Chức năng | Ví dụ |
+|------|-----------|-------|
+| `lv rn <nội dung>` | Đổi tên kênh một cách nhanh chóng | `lv rn done` |
+| `lv lock` | Khóa quyền gửi tin nhắn tại channel đó | `lv lock` |
+| `lv unlock` | Mở khóa quyền gửi tin nhắn tại channel đó | `lv unlock` |
+| `lv clear <số_lượng>` | Xóa số lượng tin nhắn | `lv clear 10` |
 
 ## 🏗️ Cấu Trúc Dự Án
 
@@ -275,8 +299,8 @@ Level = max(1, int((XP / 100) ** 0.5))
 ## ⚙️ Cấu Hình Nâng Cao
 
 ### Thời gian và Cooldown:
-- **Work:** 30 phút
-- **Hunt:** 10 phút
+- **Work:** 1 giờ
+- **Hunt:** 2 phút
 - **Fish:** 5 phút
 - **Daily:** 24 giờ
 - **Weekly:** 7 ngày
