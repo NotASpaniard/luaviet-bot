@@ -1,47 +1,59 @@
-# Discord Bot - Hệ thống BASIC, TENT, CAMPING, và Quản trị
+# Discord Bot "Lửa Việt" - Hệ Thống Kinh Tế & Gameplay
 
-Một Discord bot đa chức năng với hệ thống kinh tế, cắm trại, quản lý lều và các tính năng quản trị.
+Một Discord bot đa chức năng với hệ thống kinh tế LVC, nông trại, săn bắn, câu cá và cửa hàng đa dạng.
 
-## ✨ Tính năng chính
+## ✨ Tính Năng Chính
 
-### 🏦 Hệ thống kinh tế (BASIC)
-- **Điểm danh hàng ngày** với streak bonus (100-1999 LVC)
+### 💰 Hệ Thống Kinh Tế (ECONOMY)
+- **Làm việc** kiếm tiền với cooldown 30 phút (50-100 LVC + level bonus)
+- **Quà hàng ngày** với streak bonus (200 LVC + streak bonus)
+- **Quà hàng tuần** với phần thưởng lớn
 - **Chuyển tiền** giữa người dùng
-- **Bảng xếp hạng** theo số dư
-- **Nhiệm vụ hàng ngày** với 3 quest ngẫu nhiên
-- **Làm mới nhiệm vụ** (trừ 2000 LVC)
+- **Bảng xếp hạng** top 10 người giàu nhất
+- **Hệ thống level** dựa trên XP từ các hoạt động
 
-### 🏕️ Hệ thống cắm trại (CAMPING)
-- **Thu thập gỗ** với 5 loại khác nhau (01-05)
-- **Quản lý túi đồ** cá nhân
-- **Tạo và duy trì lửa trại** (cần 3 Gỗ Tươi + 2 Gỗ Khô + 300 LVC)
-- **Thêm gỗ vào lửa** để kéo dài thời gian cháy
-- **Tặng gỗ** cho người khác
+### 🌾 Hệ Thống Nông Trại (FARM)
+- Trồng 4 loại cây với thời gian và lợi nhuận khác nhau
+- Mua hạt giống từ cửa hàng
+- Thu hoạch với bonus ngẫu nhiên 10-30%
+- Nâng cấp nông trại để trồng cây level cao hơn
 
-### ⛺ Hệ thống lều (TENT)
-- **Quản lý lều** với chủ sở hữu và thành viên
-- **Kho lều chung** để lưu trữ gỗ
-- **Điểm danh lều** với thưởng 300 LVC/người khi tất cả thành viên hoàn thành
-- **Bảng xếp hạng lều** theo tổng gỗ và thời gian lửa
-- **Nhiệm vụ lều** riêng biệt
+### 🏹 Hệ Thống Săn Bắn (HUNT)
+- Săn 6 loại sinh vật với tỷ lệ thành công khác nhau
+- Trang bị vũ khí để tăng tỷ lệ săn thành công
+- Nhận vật phẩm đặc biệt từ săn bắn
+- Sử dụng bùa phép để tăng cơ hội
 
-### 🛠️ Hệ thống quản trị
-- **Quản lý tiền** (thêm/trừ/reset) với xác nhận
-- **Đổi tên kênh** nhanh
-- **Gửi feedback/legit** đơn hàng
-- **Điều khiển bot** (tắt/khởi động lại/trạng thái)
+### 🎣 Hệ Thống Câu Cá (FISHING)
+- Câu 6 loại cá với giá trị khác nhau
+- Sự kiện đặc biệt: Rương kho báu, rác,...
+- Trang bị cần câu và mồi câu
+- Cooldown ngắn 5 phút cho mỗi lần câu
 
-## 🚀 Yêu cầu hệ thống
-- Node.js >= 18.17
-- Discord Bot Token
-- Discord Application ID
+### 🛒 Hệ Thống Cửa Hàng (SHOP)
+- 4 cửa hàng chính: Hạt giống, Vũ khí, Câu cá, Role
+- Mua bán vật phẩm với giá cố định
+- Mua Role đặc biệt bằng LVC
+- Bán vật phẩm thu thập được
 
-## 📦 Cài đặt
+### 📊 Quản Lý Cá Nhân
+- Xem profile với thống kê chi tiết
+- Quản lý túi đồ phân loại theo nhóm
+- Xem leaderboard top người chơi
+- Hệ thống inventory thông minh
+
+## 🚀 Yêu Cầu Hệ Thống
+
+- **Node.js** 18.17+
+- **Discord Bot Token**
+- **discord.js** library
+
+## 📦 Cài Đặt
 
 1. **Clone repository:**
 ```bash
 git clone <repository-url>
-cd discord-bot-main
+cd luaviet-bot
 ```
 
 2. **Cài đặt dependencies:**
@@ -53,173 +65,245 @@ npm install
 Tạo file `.env` trong thư mục gốc với nội dung:
 ```env
 DISCORD_TOKEN=YOUR_BOT_TOKEN_HERE
-DISCORD_CLIENT_ID=YOUR_CLIENT_ID_HERE
-DISCORD_GUILD_ID=YOUR_GUILD_ID_HERE
-PREFIX=lv 
+ADMIN_ROLE_NAME=Admin
+USER_ROLE_NAME=User
+PREFIX=lv
 ```
 
-4. **Cập nhật Role IDs trong `modules/manager.ts`:**
-```typescript
-const MANAGER_ROLES = ['YOUR_MANAGER_ROLE_ID_1', 'YOUR_MANAGER_ROLE_ID_2', 'YOUR_MANAGER_ROLE_ID_3', 'YOUR_MANAGER_USER_ID'];
+4. **Tạo thư mục dữ liệu:**
+```bash
+mkdir data
 ```
 
-## 🏃‍♂️ Cách chạy
+## 🏃‍♂️ Cách Chạy
 
-### Development mode:
+**Development mode:**
 ```bash
 npm run dev
 ```
 
-### Production mode:
+**Production mode:**
 ```bash
 npm run build
 npm start
 ```
 
-### Đăng ký slash commands:
+**Register slash commands:**
 ```bash
-# Đăng ký toàn cầu (cẩn thận vì cache của Discord)
 npm run register
-
-# Xóa tất cả commands
-npm run clear
 ```
 
-### Điều khiển bot:
-```bash
-# Khởi động bot
-npm run bot:start
+## 📋 Danh Sách Lệnh Đầy Đủ
 
-# Dừng bot
-npm run bot:stop
+### 🆘 LỆNH TRỢ GIÚP
+| Lệnh | Chức năng | Ví dụ |
+|------|-----------|-------|
+| `lv help` | Hiển thị tất cả nhóm lệnh | `lv help` |
 
-# Kiểm tra trạng thái
-npm run bot:status
+### 💰 LỆNH KINH TẾ
+| Lệnh | Chức năng | Cooldown | Ví dụ |
+|------|-----------|----------|-------|
+| `lv work` | Làm việc kiếm LVC | 30 phút | `lv work` |
+| `lv daily` | Nhận quà hàng ngày | 24 giờ | `lv daily` |
+| `lv weekly` | Nhận quà hàng tuần | 7 ngày | `lv weekly` |
+| `lv profile` / `lv bal` | Xem số dư & profile | - | `lv profile` |
+| `lv give @user số_tiền` | Chuyển tiền cho user | - | `lv give @John 100` |
+| `lv leaderboard` / `lv top` | Xem top 10 giàu nhất | - | `lv top` |
+| `lv bet số_tiền` | Đặt cược may rủi (50/50) | - | `lv bet 100` |
+| `lv inventory` / `lv inv` | Xem túi đồ chi tiết | - | `lv inv` |
+
+### 🌾 LỆNH NÔNG TRẠI
+| Lệnh | Chức năng | Ví dụ |
+|------|-----------|-------|
+| `lv farm` | Xem trạng thái nông trại | `lv farm` |
+| `lv farm plant tên_cây` | Gieo trồng cây | `lv farm plant ngo` |
+| `lv farm harvest` | Thu hoạch nông sản | `lv farm harvest` |
+| `lv farm upgrade` | Nâng cấp nông trại | `lv farm upgrade` |
+
+**Cây trồng có sẵn:**
+- **lua** (Lúa) - 1 giờ - 50 LVC - Level 1
+- **ngo** (Ngô) - 2 giờ - 80 LVC - Level 2
+- **ca_rot** (Cà rốt) - 3 giờ - 120 LVC - Level 3
+- **ca_chua** (Cà chua) - 4 giờ - 200 LVC - Level 4
+
+### 🏹 LỆNH SĂN BẮN
+| Lệnh | Chức năng | Cooldown | Ví dụ |
+|------|-----------|----------|-------|
+| `lv hunt` | Đi săn một lượt | 10 phút | `lv hunt` |
+| `lv hunt equip tên_vũ_khí` | Trang bị vũ khí | - | `lv hunt equip cung` |
+| `lv hunt inventory` | Xem đồ săn bắn | - | `lv hunt inv` |
+| `lv hunt use tên_bùa` | Dùng bùa phép | - | `lv hunt use lucky_charm` |
+
+**Sinh vật có thể săn:**
+- 🐰 **Thỏ** (80%) - 30-50 LVC
+- 🐔 **Gà rừng** (75%) - 40-60 LVC
+- 🐗 **Heo rừng** (60%) - 80-120 LVC
+- 🦌 **Nai** (50%) - 100-150 LVC
+- 🐅 **Hổ** (30%) - 200-300 LVC
+- 🐻 **Gấu** (25%) - 250-350 LVC
+
+### 🎣 LỆNH CÂU CÁ
+| Lệnh | Chức năng | Cooldown | Ví dụ |
+|------|-----------|----------|-------|
+| `lv fish` | Câu cá một lượt | 5 phút | `lv fish` |
+| `lv fish equip tên_cần` | Trang bị cần câu | - | `lv fish equip can_cau_sat` |
+| `lv fish use tên_mồi` | Dùng mồi câu | - | `lv fish use moi_cau` |
+| `lv fish inventory` | Xem đồ câu cá | - | `lv fish inv` |
+
+**Cá có thể bắt:**
+- 🐟 **Cá Mè** (50%) - 20-40 LVC
+- 🐠 **Cá Rô** (30%) - 25-45 LVC
+- 🐡 **Cá Chép** (15%) - 50-80 LVC
+- 🐋 **Cá Trê** (10%) - 60-90 LVC
+- 🦈 **Cá Lóc** (4%) - 100-150 LVC
+- 🐬 **Cá Anh Vũ** (1%) - 200-300 LVC
+
+### 🛒 LỆNH CỬA HÀNG
+| Lệnh | Chức năng | Ví dụ |
+|------|-----------|-------|
+| `lv shop` | Xem tất cả cửa hàng | `lv shop` |
+| `lv shop seeds` | Cửa hàng hạt giống | `lv shop seeds` |
+| `lv shop weapons` | Cửa hàng vũ khí | `lv shop weapons` |
+| `lv shop fishing` | Cửa hàng câu cá | `lv shop fishing` |
+| `lv shop roles` | Mua role bằng LVC | `lv shop roles` |
+| `lv buy tên_vật_phẩm` | Mua vật phẩm | `lv buy lua_seed` |
+| `lv sell tên_vật_phẩm` | Bán vật phẩm | `lv sell thit_tho` |
+
+**Vật phẩm cửa hàng:**
+
+🌾 **Hạt giống:** lua_seed (50 LVC), ngo_seed (80 LVC), ca_rot_seed (120 LVC)
+
+⚔️ **Vũ khí:** cung (300 LVC), noi_long_cung (600 LVC), thuan_phong_cung (1200 LVC)
+
+🎣 **Đồ câu cá:** can_cau_tre (200 LVC), can_cau_sat (500 LVC), moi_cau (50 LVC)
+
+🎭 **Role:** nong_dan (5000 LVC), tho_san (8000 LVC), danh_ca (6000 LVC)
+
+### 📦 LỆNH QUẢN LÝ CÁ NHÂN
+| Lệnh | Chức năng | Ví dụ |
+|------|-----------|-------|
+| `lv inventory` / `lv inv` | Xem túi đồ chi tiết | `lv inv` |
+| `lv profile @user` | Xem profile user khác | `lv profile @John` |
+
+### ⚡ LỆNH ADMIN (Chỉ Admin)
+| Lệnh | Chức năng | Ví dụ |
+|------|-----------|-------|
+| `/add @user số_tiền` | Thêm tiền cho user | `/add @John 1000` |
+| `/remove @user số_tiền` | Trừ tiền user | `/remove @John 500` |
+| `/resetmoney @user` | Reset tiền user | `/resetmoney @John` |
+| `/turnoff` | Tắt bot | `/turnoff` |
+| `/reset` | Khởi động lại bot | `/reset` |
+| `/status` | Kiểm tra trạng thái bot | `/status` |
+
+## 🏗️ Cấu Trúc Dự Án
+
+```
+luaviet-bot/
+├── index.ts                 # Entry point chính
+├── modules/                 # Các module chức năng
+│   ├── basic.ts            # Lệnh cơ bản & help
+│   ├── economy.ts          # Hệ thống kinh tế
+│   ├── farm.ts             # Hệ thống nông trại
+│   ├── hunt.ts             # Hệ thống săn bắn
+│   ├── fishing.ts          # Hệ thống câu cá
+│   ├── shop.ts             # Hệ thống cửa hàng
+│   ├── entertainment.ts    # Game giải trí
+│   ├── club.ts             # Hệ thống club
+│   ├── manager.ts          # Quản trị
+│   └── control.ts          # Điều khiển bot
+├── data/                   # Lưu trữ dữ liệu
+│   ├── db.json             # Dữ liệu người dùng
+│   ├── shop_config.json    # Cấu hình cửa hàng
+│   └── game_config.json    # Cấu hình game
+├── store/                   # Quản lý dữ liệu
+│   └── store.ts            # Store class chính
+├── lib/                    # Utilities
+│   ├── env.ts              # Environment config
+│   └── loader.ts           # Command loader
+├── tools/                  # Scripts tiện ích
+│   ├── registerSlash.ts    # Đăng ký slash commands
+│   └── clearCommands.ts    # Xóa commands
+├── scripts/                # Scripts quản lý
+│   ├── bot-control.ps1     # PowerShell control
+│   └── bot-control.bat     # Batch control
+├── types/                  # TypeScript types
+│   └── command.ts          # Command interfaces
+├── package.json            # Dependencies
+├── tsconfig.json           # TypeScript config
+├── Dockerfile              # Docker config
+├── docker-compose.yml      # Docker compose
+└── README.md              # Tài liệu
 ```
 
-### Docker (Tùy chọn):
-```bash
-# Build và chạy với Docker
-docker-compose up -d
+## 🎯 Hệ Thống Level & Tiến Trình
 
-# Xem logs
-docker-compose logs -f
+### Cách tăng Level:
+- ✅ **Làm việc** (work): +10 XP
+- ✅ **Nhận quà** (daily): +25 XP
+- ✅ **Đi săn** (hunt): +15 XP
+- ✅ **Câu cá** (fish): +12 XP
+- ✅ **Thu hoạch** (farm harvest): +20 XP
 
-# Dừng bot
-docker-compose down
+### Công thức Level:
+```
+Level = max(1, int((XP / 100) ** 0.5))
 ```
 
-## 📋 Danh sách lệnh
+### Lợi ích khi Level cao:
+- 🎯 Mở khóa cây trồng mới
+- ⚔️ Săn được quái vật hiếm
+- 🎣 Câu được cá quý hiếm
+- 💰 Bonus thu nhập từ công việc
 
-### 🏦 Lệnh BASIC (prefix `lv `)
-| Lệnh | Mô tả | Ví dụ |
-|------|-------|-------|
-| `lv daily` | Điểm danh hàng ngày với streak bonus | `lv daily` |
-| `lv cash` | Xem số dư tài khoản | `lv cash` |
-| `lv info` | Thông tin server hiện tại | `lv info` |
-| `lv give <@user> <số tiền>` | Chuyển LVC cho người khác | `lv give @user 1000` |
-| `lv bxh` | Bảng xếp hạng theo số dư | `lv bxh` |
-| `lv quest` | Xem nhiệm vụ hàng ngày | `lv quest` |
+## 🔄 Vòng Lặp Gameplay Chính
 
-### 🏕️ Lệnh CAMPING (prefix `lv `)
-| Lệnh | Mô tả | Ví dụ |
-|------|-------|-------|
-| `lv pickup` | Thu thập gỗ ngẫu nhiên | `lv pickup` |
-| `lv inv` | Xem túi đồ cá nhân | `lv inv` |
-| `lv firecheck` | Kiểm tra thời gian lửa lều | `lv firecheck` |
-| `lv firemake` | Tạo lửa cho lều | `lv firemake` |
-| `lv addwood <mã> <kg>` | Thêm gỗ vào kho lều | `lv addwood 03 5` |
-| `lv givewood <@user> <mã> <kg>` | Tặng gỗ cho người khác | `lv givewood @user 01 10` |
-| `lv usewood <mã> <kg>` | Dùng gỗ để kéo dài lửa | `lv usewood 02 3` |
+1. **💼 Kiếm tiền cơ bản** → `lv work`, `lv daily`
+2. **🛒 Mua công cụ** → `lv shop weapons`, `lv shop seeds`
+3. **🎮 Sử dụng công cụ** → `lv hunt`, `lv fish`, `lv farm`
+4. **📈 Kiếm nhiều hơn** + Vật phẩm quý
+5. **🎯 Level up** → Mở khóa nội dung mới
+6. **🔄 Lặp lại** với hiệu suất cao hơn
 
-### ⛺ Lệnh TENT
-| Lệnh | Mô tả | Ví dụ |
-|------|-------|-------|
-| `/tentowner <@user> <tên lều> <role>` | Gán chủ lều (chỉ admin) | `/tentowner @user Tent1 123456` |
-| `lv tent add <@user>` | Thêm thành viên lều | `lv tent add @user` |
-| `lv tent remove <@user>` | Xóa thành viên lều | `lv tent remove @user` |
-| `lv tent list` | Danh sách thành viên lều | `lv tent list` |
-| `lv tent inv` | Kho gỗ của lều | `lv tent inv` |
-| `lv tent daily` | Điểm danh lều | `lv tent daily` |
-| `lv tent bxh` | Bảng xếp hạng lều | `lv tent bxh` |
-| `lv tent quest` | Nhiệm vụ lều | `lv tent quest` |
+## 🏆 Mục Tiêu Cuối Cùng
 
-### 🛠️ Lệnh Quản trị
-| Lệnh | Mô tả | Ví dụ |
-|------|-------|-------|
-| `lv!name <content>` | Đổi tên kênh | `lv!name New Channel` |
-| `lv!legit <content>` | Gửi feedback/legit | `lv!legit Order completed` |
-| `/add <@user> <số tiền>` | Thêm tiền (có xác nhận) | `/add @user 1000` |
-| `/remove <@user> <số tiền>` | Trừ tiền (có xác nhận) | `/remove @user 500` |
-| `/resetmoney <@user>` | Reset tiền (có xác nhận) | `/resetmoney @user` |
-| `/balance <@user?>` | Xem số dư | `/balance @user` |
-| `/help` | Hướng dẫn sử dụng | `/help` |
-| `/status` | Trạng thái bot | `/status` |
-| `/turnoff` | Tắt bot (chỉ admin) | `/turnoff` |
-| `/reset` | Khởi động lại bot (chỉ admin) | `/reset` |
+- ✅ **Top Leaderboard** - Trở thành người giàu nhất server
+- 🎭 **Mua Role đặc biệt** - Thể hiện đẳng cấp
+- ⚔️ **Sở hữu vũ khí hiếm** - Săn quái vật mạnh
+- 🌾 **Nông trại cấp cao** - Thu hoạch siêu lợi nhuận
+- 🎣 **Câu cá huyền thoại** - Rương báu giá trị cao
 
-## 🏗️ Cấu trúc dự án
+## ⚙️ Cấu Hình Nâng Cao
 
-```
-discord-bot-main/
-├── index.ts              # Entry point chính
-├── lib/
-│   ├── env.ts           # Quản lý biến môi trường
-│   └── loader.ts        # Loader commands
-├── modules/             # Các module lệnh
-│   ├── basic.ts         # Lệnh cơ bản
-│   ├── camping.ts       # Lệnh cắm trại
-│   ├── tent.ts          # Lệnh lều
-│   ├── control.ts       # Điều khiển bot
-│   └── manager.ts       # Quản trị
-├── store/
-│   └── store.ts         # Quản lý dữ liệu JSON
-├── tools/               # Công cụ hỗ trợ
-│   ├── registerSlash.ts # Đăng ký slash commands
-│   └── clearCommands.ts # Xóa commands
-├── scripts/             # Scripts điều khiển
-│   ├── bot-control.ps1  # PowerShell control
-│   └── bot-control.bat  # Batch control
-└── data/
-    └── db.json         # Dữ liệu JSON
-```
+### Thời gian và Cooldown:
+- **Work:** 30 phút
+- **Hunt:** 10 phút
+- **Fish:** 5 phút
+- **Daily:** 24 giờ
+- **Weekly:** 7 ngày
 
-## ⚙️ Cấu hình nâng cao
+### Giới hạn hệ thống:
+- **Số dư tối đa:** 10,000,000 LVC
+- **Level tối đa:** 100
+- **Streak bonus tối đa:** 100 LVC
 
-### Thời gian và múi giờ
-- Hệ thống sử dụng múi giờ Việt Nam (GMT+7)
-- Daily reset lúc 00:00 VN time
-- Streak được tính theo ngày VN
+## 🐛 Xử Lý Lỗi
 
-### Dữ liệu
-- Lưu trữ dạng JSON trong `./data/db.json`
-- Hỗ trợ migration sang database thực tế
-- Backup tự động khi thay đổi dữ liệu
+Bot được trang bị hệ thống xử lý lỗi toàn diện:
 
-### Bảo mật
-- Role-based permissions cho admin commands
-- Xác nhận 2 bước cho các thao tác quan trọng
-- Validation input với Zod schema
+- ✅ Validation input nghiêm ngặt
+- ✅ Cooldown hệ thống chống spam
+- ✅ Backup dữ liệu tự động
+- ✅ Log lỗi chi tiết
 
-## 🚀 Phát triển
+## 📞 Hỗ Trợ
 
-### Thêm module mới
-1. Tạo file trong `modules/`
-2. Export `slash`, `prefix` hoặc arrays `slashes`, `prefixes`
-3. Bot sẽ tự động load khi khởi động
+Nếu gặp vấn đề:
 
-### Scripts có sẵn
-```bash
-npm run dev          # Development với watch mode
-npm run build        # Build TypeScript
-npm run start        # Chạy production
-npm run register     # Đăng ký slash commands
-npm run clear        # Xóa tất cả commands
-npm run control      # Điều khiển bot
-```
+1. Kiểm tra file logs trong thư mục logs/
+2. Đảm bảo bot có đủ permissions
+3. Kiểm tra cấu hình file .env
+4. Liên hệ quản trị viên server
 
-## 📝 Lưu ý
-- Bot hỗ trợ cả prefix commands (`lv `, `lv!`) và slash commands
-- Dữ liệu được lưu local, phù hợp cho testing
-- Có thể scale lên database thực tế khi cần
-- Tất cả commands đều có error handling
+---
+
+**Lửa Việt Bot** - Siêu cháy! 🔥

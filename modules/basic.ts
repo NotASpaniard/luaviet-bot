@@ -21,14 +21,18 @@ export const slash: SlashCommand = {
           inline: false
         },
         { 
-          name: '💰 Lệnh cơ bản (Basic)', 
+          name: '💰 Lệnh Kinh Tế (Economy)', 
           value: [
+            '• `lv work` - Làm việc kiếm LVC (30 phút)',
             '• `lv daily` - Nhận thưởng hàng ngày',
+            '• `lv weekly` - Quà hàng tuần (7 ngày)',
+            '• `lv bet <số tiền>` - Đặt cược may rủi 50/50',
             '• `lv cash` - Kiểm tra số dư tài khoản',
-            '• `lv info` - Xem thông tin cá nhân',
+            '• `lv profile [@user]` - Xem profile đầy đủ',
             '• `lv give <@user> <số tiền>` - Chuyển tiền cho người khác',
             '• `lv bxh` - Xem bảng xếp hạng giàu có',
-            '• `lv quest` - Xem và làm nhiệm vụ hàng ngày'
+            '• `lv quest` - Xem và làm nhiệm vụ hàng ngày',
+            '• `lv inventory` / `lv inv` - Xem túi đồ phân loại'
           ].join('\n'),
           inline: false
         },
@@ -44,6 +48,49 @@ export const slash: SlashCommand = {
             '• `lv club quest` - Nhiệm vụ club',
             '• `lv club info` - Thông tin campfire & buff',
             '• `lv club donate <số tiền>` - Đóng góp nâng cấp campfire'
+          ].join('\n'),
+          inline: false
+        },
+        { 
+          name: '🌾 Lệnh Nông Trại (Farm)', 
+          value: [
+            '• `lv farm` - Xem trạng thái nông trại',
+            '• `lv farm plant <lua|ngo|ca_rot|ca_chua>` - Gieo trồng cây',
+            '• `lv farm harvest` - Thu hoạch nông sản',
+            '• `lv farm upgrade` - Nâng cấp farm'
+          ].join('\n'),
+          inline: false
+        },
+        { 
+          name: '🏹 Lệnh Săn Bắn (Hunt)', 
+          value: [
+            '• `lv hunt` - Săn bắn sinh vật (10 phút)',
+            '• `lv hunt equip <vũ_khí>` - Trang bị vũ khí',
+            '• `lv hunt inventory` - Xem đồ săn bắn',
+            '• `lv hunt use <bùa_phép>` - Dùng bùa phép'
+          ].join('\n'),
+          inline: false
+        },
+        { 
+          name: '🎣 Lệnh Câu Cá (Fishing)', 
+          value: [
+            '• `lv fish` - Câu cá (5 phút)',
+            '• `lv fish equip <cần_câu>` - Trang bị cần câu',
+            '• `lv fish use <mồi_câu>` - Dùng mồi câu',
+            '• `lv fish inventory` - Xem đồ câu cá'
+          ].join('\n'),
+          inline: false
+        },
+        { 
+          name: '🛒 Lệnh Cửa Hàng (Shop)', 
+          value: [
+            '• `lv shop` - Xem tất cả cửa hàng',
+            '• `lv shop seeds` - Cửa hàng hạt giống',
+            '• `lv shop weapons` - Cửa hàng vũ khí',
+            '• `lv shop fishing` - Cửa hàng đồ câu cá',
+            '• `lv shop roles` - Cửa hàng role',
+            '• `lv buy <item_id> [số lượng]` - Mua item',
+            '• `lv sell <item_id> [số lượng]` - Bán item'
           ].join('\n'),
           inline: false
         },

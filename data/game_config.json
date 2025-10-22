@@ -1,0 +1,171 @@
+{
+    "crops": {
+        "lua": {
+            "name": "Lúa",
+            "growTime": 60,
+            "baseReward": 50,
+            "levelRequired": 1,
+            "emoji": "🌾"
+        },
+        "ngo": {
+            "name": "Ngô",
+            "growTime": 120,
+            "baseReward": 80,
+            "levelRequired": 2,
+            "emoji": "🌽"
+        },
+        "ca_rot": {
+            "name": "Cà Rốt",
+            "growTime": 180,
+            "baseReward": 120,
+            "levelRequired": 3,
+            "emoji": "🥕"
+        },
+        "ca_chua": {
+            "name": "Cà Chua",
+            "growTime": 240,
+            "baseReward": 200,
+            "levelRequired": 4,
+            "emoji": "🍅"
+        }
+    },
+    "hunt_creatures": {
+        "tho": {
+            "name": "Thỏ",
+            "successRate": 80,
+            "reward": { "min": 30, "max": 50 },
+            "levelRequired": 1,
+            "emoji": "🐰",
+            "loot": "thit_tho"
+        },
+        "ga_rung": {
+            "name": "Gà Rừng",
+            "successRate": 75,
+            "reward": { "min": 40, "max": 60 },
+            "levelRequired": 1,
+            "emoji": "🐔",
+            "loot": "thit_ga"
+        },
+        "heo_rung": {
+            "name": "Heo Rừng",
+            "successRate": 60,
+            "reward": { "min": 80, "max": 120 },
+            "levelRequired": 2,
+            "emoji": "🐗",
+            "loot": "thit_heo"
+        },
+        "nai": {
+            "name": "Nai",
+            "successRate": 50,
+            "reward": { "min": 100, "max": 150 },
+            "levelRequired": 3,
+            "emoji": "🦌",
+            "loot": "thit_nai"
+        },
+        "ho": {
+            "name": "Hổ",
+            "successRate": 30,
+            "reward": { "min": 200, "max": 300 },
+            "levelRequired": 4,
+            "emoji": "🐅",
+            "loot": "thit_ho"
+        },
+        "gau": {
+            "name": "Gấu",
+            "successRate": 25,
+            "reward": { "min": 250, "max": 350 },
+            "levelRequired": 5,
+            "emoji": "🐻",
+            "loot": "thit_gau"
+        }
+    },
+    "fish_types": {
+        "ca_me": {
+            "name": "Cá Mè",
+            "catchRate": 50,
+            "reward": { "min": 20, "max": 40 },
+            "levelRequired": 1,
+            "emoji": "🐟"
+        },
+        "ca_ro": {
+            "name": "Cá Rô",
+            "catchRate": 30,
+            "reward": { "min": 25, "max": 45 },
+            "levelRequired": 1,
+            "emoji": "🐠"
+        },
+        "ca_chep": {
+            "name": "Cá Chép",
+            "catchRate": 15,
+            "reward": { "min": 50, "max": 80 },
+            "levelRequired": 2,
+            "emoji": "🐡"
+        },
+        "ca_tre": {
+            "name": "Cá Trê",
+            "catchRate": 10,
+            "reward": { "min": 60, "max": 90 },
+            "levelRequired": 3,
+            "emoji": "🐋"
+        },
+        "ca_loc": {
+            "name": "Cá Lóc",
+            "catchRate": 4,
+            "reward": { "min": 100, "max": 150 },
+            "levelRequired": 4,
+            "emoji": "🦈"
+        },
+        "ca_anh_vu": {
+            "name": "Cá Anh Vũ",
+            "catchRate": 1,
+            "reward": { "min": 200, "max": 300 },
+            "levelRequired": 5,
+            "emoji": "🐬"
+        }
+    },
+    "special_events": {
+        "ruong_kho_bau": {
+            "name": "Rương Kho Báu",
+            "rate": 2,
+            "reward": { "min": 500, "max": 1000 },
+            "emoji": "💎"
+        },
+        "rac": {
+            "name": "Rác",
+            "rate": 5,
+            "reward": { "min": 0, "max": 0 },
+            "emoji": "🗑️"
+        }
+    },
+    "xp_rewards": {
+        "work": 10,
+        "daily": 25,
+        "weekly": 50,
+        "hunt": 15,
+        "fish": 12,
+        "farm_harvest": 20
+    },
+    "cooldowns": {
+        "work": 30,
+        "hunt": 10,
+        "fish": 5,
+        "weekly": 10080
+    },
+    "weapon_bonuses": {
+        "cung": 5,
+        "noi_long_cung": 10,
+        "thuan_phong_cung": 15
+    },
+    "fishing_gear_bonuses": {
+        "can_cau_tre": 5,
+        "can_cau_sat": 10,
+        "moi_cau": 15
+    },
+    "farm_upgrade_costs": {
+        "1": 0,
+        "2": 1000,
+        "3": 5000,
+        "4": 20000,
+        "5": 100000
+    }
+}
