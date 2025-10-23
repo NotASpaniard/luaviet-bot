@@ -50,10 +50,10 @@ export const prefixGiveaway: PrefixCommand = {
     const endDate = new Date(endTime);
 
     const embed = new EmbedBuilder()
-      .setTitle('🎉 GIVEAWAY')
-      .setDescription(`**Phần thưởng:** ${content}\n**Số người thắng:** ${winners}\n**Kết thúc:** <t:${Math.floor(endTime / 1000)}:R>`)
-      .setColor('#FFD700')
-      .setFooter({ text: 'React 🎉 để tham gia!' })
+      .setTitle('🎉 GIVEAWAY BẮT ĐẦU 🎉')
+      .setDescription(`**Lửa Việt**\n\n**${content}** 🎫\n\n**Nhấn vào 🔥 để tham gia**\n\n**Đếm ngược:** <t:${Math.floor(endTime / 1000)}:R>\n**Tổ chức bởi:** <@${message.author.id}>\n\n**Giveaway với ${winners} giải · <t:${Math.floor(endTime / 1000)}:F>**`)
+      .setColor('#8B5CF6')
+      .setThumbnail(message.author.displayAvatarURL())
       .setTimestamp();
 
     if (requiredRole) {
@@ -61,7 +61,7 @@ export const prefixGiveaway: PrefixCommand = {
     }
 
     const giveawayMessage = await message.channel.send({ embeds: [embed] });
-    await giveawayMessage.react('🎉');
+    await giveawayMessage.react('<a:LV_fire:1413427579326824479>');
 
     // Lưu thông tin giveaway (có thể lưu vào database hoặc file)
     // Ở đây tôi sẽ chỉ log ra console
@@ -107,9 +107,9 @@ export const prefixReroll: PrefixCommand = {
       }
 
       // Lấy danh sách người tham gia
-      const reaction = giveawayMessage.reactions.cache.get('🎉');
+      const reaction = giveawayMessage.reactions.cache.get('<a:LV_fire:1413427579326824479>');
       if (!reaction) {
-        await message.reply('❌ Không tìm thấy reaction 🎉 trong giveaway.');
+        await message.reply('❌ Không tìm thấy reaction 🔥 trong giveaway.');
         return;
       }
 
@@ -175,9 +175,9 @@ export const prefixEndGiveaway: PrefixCommand = {
       }
 
       // Lấy danh sách người tham gia
-      const reaction = giveawayMessage.reactions.cache.get('🎉');
+      const reaction = giveawayMessage.reactions.cache.get('<a:LV_fire:1413427579326824479>');
       if (!reaction) {
-        await message.reply('❌ Không tìm thấy reaction 🎉 trong giveaway.');
+        await message.reply('❌ Không tìm thấy reaction 🔥 trong giveaway.');
         return;
       }
 
