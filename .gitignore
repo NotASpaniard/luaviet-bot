@@ -43,3 +43,8 @@ coverage/
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# AI Assistant files
+*.plan.md
+conversation-*.md
+*.conversation
