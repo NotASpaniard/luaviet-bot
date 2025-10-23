@@ -20,7 +20,9 @@ export const prefixRenameChannel: PrefixCommand = {
     const newName = args.join(' ');
 
     try {
-      await message.channel.setName(newName);
+      if ('setName' in message.channel) {
+        await (message.channel as any).setName(newName);
+      }
       
       const embed = new EmbedBuilder()
         .setTitle('✅ Đổi Tên Kênh')
@@ -49,9 +51,11 @@ export const prefixLockChannel: PrefixCommand = {
 
     try {
       // Khóa kênh cho @everyone
-      await message.channel.permissionOverwrites.edit(message.guild!.roles.everyone, {
-        SendMessages: false
-      });
+      if ('permissionOverwrites' in message.channel) {
+        await (message.channel as any).permissionOverwrites.edit(message.guild!.roles.everyone, {
+          SendMessages: false
+        });
+      }
 
       const embed = new EmbedBuilder()
         .setTitle('🔒 Khóa Kênh')
@@ -80,9 +84,11 @@ export const prefixUnlockChannel: PrefixCommand = {
 
     try {
       // Mở khóa kênh cho @everyone
-      await message.channel.permissionOverwrites.edit(message.guild!.roles.everyone, {
-        SendMessages: true
-      });
+      if ('permissionOverwrites' in message.channel) {
+        await (message.channel as any).permissionOverwrites.edit(message.guild!.roles.everyone, {
+          SendMessages: true
+        });
+      }
 
       const embed = new EmbedBuilder()
         .setTitle('🔓 Mở Khóa Kênh')
@@ -123,11 +129,15 @@ export const prefixClearMessages: PrefixCommand = {
 
     try {
       // Xóa tin nhắn
-      const deleted = await message.channel.bulkDelete(amount, true);
+      let deleted = 0;
+      if ('bulkDelete' in message.channel) {
+        const result = await (message.channel as any).bulkDelete(amount, true);
+        deleted = result?.size || 0;
+      }
       
       const embed = new EmbedBuilder()
         .setTitle('🗑️ Xóa Tin Nhắn')
-        .setDescription(`Đã xóa **${deleted.size}** tin nhắn.`)
+        .setDescription(`Đã xóa **${deleted}** tin nhắn.`)
         .setColor('#FFA500')
         .setTimestamp();
 

@@ -17,7 +17,9 @@ export const prefixName: PrefixCommand = {
     if (!hasAnyRole(member, MANAGER_ROLES)) { await message.reply('Bạn không có quyền.'); return; }
     const content = args.join(' ').trim();
     if (!content) { await message.reply('Cú pháp: lv!name <content>'); return; }
-    await message.channel.setName(content.slice(0, 100));
+    if ('setName' in message.channel) {
+      await (message.channel as any).setName(content.slice(0, 100));
+    }
     await message.reply('Đã đổi tên kênh.');
   }
 };

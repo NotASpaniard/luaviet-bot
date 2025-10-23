@@ -37,7 +37,7 @@ export const prefixFish: PrefixCommand = {
     
     // Random fish dựa trên level
     const randomFish = availableFish[Math.floor(Math.random() * availableFish.length)];
-    const [fishKey, fishConfig] = randomFish;
+    const [fishKey, fishConfig] = randomFish as [string, any];
     baseCatchRate = fishConfig.catchRate;
     fishName = fishConfig.name;
     fishEmoji = fishConfig.emoji;
@@ -50,12 +50,12 @@ export const prefixFish: PrefixCommand = {
     }
     
     // Áp dụng mồi câu nếu có
-    const hasBait = user.equippedItems.bait && store.getItemQuantity(message.author.id, 'fishingGear', user.equippedItems.bait) > 0;
+    const hasBait = user.equippedItems.bait && store.getItemQuantity(message.author.id, 'fishingGear', user.equippedItems.bait!) > 0;
     if (hasBait) {
-      const baitBonus = gameConfig.fishing_gear_bonuses[user.equippedItems.bait] || 0;
+      const baitBonus = gameConfig.fishing_gear_bonuses[user.equippedItems.bait!] || 0;
       baseCatchRate += baitBonus;
       // Tiêu hao mồi
-      store.removeItemFromInventory(message.author.id, 'fishingGear', user.equippedItems.bait, 1);
+      store.removeItemFromInventory(message.author.id, 'fishingGear', user.equippedItems.bait!, 1);
     }
     
     // Kiểm tra special events (rương kho báu, rác)
@@ -75,10 +75,11 @@ export const prefixFish: PrefixCommand = {
       let cumulativeRate = 0;
       let selectedEvent = null;
       
-      for (const [key, event]: [string, any]) {
-        cumulativeRate += event.rate;
+      for (const [key, event] of events) {
+        const eventData = event as any;
+        cumulativeRate += eventData.rate;
         if (randomSpecial < cumulativeRate) {
-          selectedEvent = { key, ...event };
+          selectedEvent = { key, ...eventData };
           break;
         }
       }

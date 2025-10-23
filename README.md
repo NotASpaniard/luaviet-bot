@@ -64,6 +64,11 @@ cd luaviet-bot
 npm install
 ```
 
+**⚠️ QUAN TRỌNG:** Bước này là **BẮT BUỘC**! Nếu bỏ qua sẽ gặp lỗi:
+- `'tsx' is not recognized as an internal or external command`
+- `'node' is not recognized as an internal or external command`
+- Các lỗi module not found khác
+
 ### Bước 3: Cấu Hình Environment
 ```bash
 # Copy file mẫu
@@ -85,6 +90,17 @@ npm start
 ```
 
 ## ⚠️ Troubleshooting
+
+### Lỗi "tsx is not recognized"
+Nếu gặp lỗi này, có nghĩa là chưa cài đặt dependencies:
+
+```bash
+# Cài đặt dependencies
+npm install
+
+# Kiểm tra tsx đã được cài đặt chưa
+npx tsx --version
+```
 
 ### Lỗi "ERR_MODULE_NOT_FOUND"
 Nếu gặp lỗi này, hãy kiểm tra:
@@ -110,6 +126,37 @@ Nếu gặp lỗi này, hãy kiểm tra:
    ```bash
    rm -rf node_modules package-lock.json
    npm install
+   ```
+
+5. **Kiểm tra working directory:**
+   ```bash
+   # Đảm bảo đang ở đúng thư mục
+   pwd
+   ls -la
+   # Phải thấy file package.json
+   ```
+
+6. **Fix npm cache:**
+   ```bash
+   npm cache clean --force
+   npm install
+   ```
+
+7. **Kiểm tra file package.json:**
+   ```bash
+   # Xem nội dung file
+   cat package.json
+   # Hoặc trên Windows
+   type package.json
+   ```
+
+8. **Nếu vẫn lỗi, thử tạo lại package.json:**
+   ```bash
+   # Backup file hiện tại
+   cp package.json package.json.backup
+   # Tạo lại file
+   npm init -y
+   # Sau đó copy lại nội dung từ backup
    ```
 
 1. **Clone repository:**

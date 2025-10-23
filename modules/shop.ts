@@ -138,8 +138,9 @@ export const prefixBuy: PrefixCommand = {
     
     for (const [cat, items] of Object.entries(shopConfig)) {
       if (cat === 'seeds' || cat === 'weapons' || cat === 'fishing_gear' || cat === 'roles') {
-        if (items[itemId]) {
-          itemConfig = items[itemId];
+        const itemsData = items as any;
+        if (itemsData[itemId]) {
+          itemConfig = itemsData[itemId];
           category = cat === 'fishing_gear' ? 'fishingGear' : cat;
           break;
         }
@@ -223,8 +224,9 @@ export const prefixSell: PrefixCommand = {
     
     for (const [cat, items] of Object.entries(shopConfig)) {
       if (cat === 'seeds' || cat === 'weapons' || cat === 'fishing_gear') {
-        if (items[itemId]) {
-          itemConfig = items[itemId];
+        const itemsData = items as any;
+        if (itemsData[itemId]) {
+          itemConfig = itemsData[itemId];
           category = cat === 'fishing_gear' ? 'fishingGear' : cat;
           break;
         }

@@ -38,7 +38,7 @@ export const prefixHunt: PrefixCommand = {
     
     // Random creature dựa trên level
     const randomCreature = availableCreatures[Math.floor(Math.random() * availableCreatures.length)];
-    const [creatureKey, creatureConfig] = randomCreature;
+    const [creatureKey, creatureConfig] = randomCreature as [string, any];
     baseSuccessRate = creatureConfig.successRate;
     creatureName = creatureConfig.name;
     creatureEmoji = creatureConfig.emoji;
@@ -93,6 +93,9 @@ export const prefixHunt: PrefixCommand = {
     // Cộng XP
     const xpResult = store.addXP(message.author.id, 15);
     store.save();
+    
+    // Lấy thông tin club
+    const userClub = store.getUserClub(message.author.id);
     
     const embed = new EmbedBuilder()
       .setTitle('🏹 Săn Bắn')

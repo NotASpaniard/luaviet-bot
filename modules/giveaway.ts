@@ -67,7 +67,7 @@ export const prefixGiveaway: PrefixCommand = {
       embed.addFields({ name: '📋 Yêu cầu', value: `Role: ${requiredRole}`, inline: false });
     }
 
-    const giveawayMessage = await message.channel.send({ embeds: [embed] });
+    const giveawayMessage = await (message.channel as any).send({ embeds: [embed] });
     await giveawayMessage.react('<a:LV_fire:1413427579326824479>');
 
     // Lưu thông tin giveaway (có thể lưu vào database hoặc file)
