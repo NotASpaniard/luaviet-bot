@@ -48,10 +48,69 @@ Một Discord bot đa chức năng với hệ thống kinh tế LVC, nông trạ
 ## 🚀 Yêu Cầu Hệ Thống
 
 - **Node.js** 18.17+
+- **npm** hoặc **yarn**
 - **Discord Bot Token**
-- **discord.js** library
 
 ## 📦 Cài Đặt
+
+### Bước 1: Clone Repository
+```bash
+git clone <repository-url>
+cd luaviet-bot
+```
+
+### Bước 2: Cài Đặt Dependencies
+```bash
+npm install
+```
+
+### Bước 3: Cấu Hình Environment
+```bash
+# Copy file mẫu
+cp .env.example .env
+
+# Chỉnh sửa file .env với thông tin của bạn
+# DISCORD_TOKEN=your_bot_token_here
+# PREFIX=lv
+```
+
+### Bước 4: Chạy Bot
+```bash
+# Development mode
+npm run dev
+
+# Production mode
+npm run build
+npm start
+```
+
+## ⚠️ Troubleshooting
+
+### Lỗi "ERR_MODULE_NOT_FOUND"
+Nếu gặp lỗi này, hãy kiểm tra:
+
+1. **Đã cài đặt dependencies chưa:**
+   ```bash
+   npm install
+   ```
+
+2. **File .env đã tồn tại chưa:**
+   ```bash
+   cp .env.example .env
+   # Sau đó chỉnh sửa file .env với token của bạn
+   ```
+
+3. **Node.js version:**
+   ```bash
+   node --version
+   # Phải >= 18.17
+   ```
+
+4. **Clear cache và reinstall:**
+   ```bash
+   rm -rf node_modules package-lock.json
+   npm install
+   ```
 
 1. **Clone repository:**
 ```bash
