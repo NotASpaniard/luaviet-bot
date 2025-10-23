@@ -55,7 +55,7 @@ export const prefixGiveaway: PrefixCommand = {
         iconURL: message.guild?.iconURL() || undefined 
       })
       .setDescription(`## ${content} 🎫\n\n<:LV_orange:1410543066435162174> Nhấn <a:LV_fire:1413427579326824479> để tham gia\n<:LV_orange:1410543066435162174> Đếm ngược: <t:${Math.floor(endTime / 1000)}:R>\n<:LV_orange:1410543066435162174> Tổ chức bởi: <@${message.author.id}>`)
-      .setColor('#8B5CF6')
+      .setColor('#f46026')
       .setThumbnail(message.author.displayAvatarURL())
       .setFooter({ 
         text: `Giveaway với ${winners} giải · <t:${Math.floor(endTime / 1000)}:F>`, 
@@ -132,9 +132,9 @@ export const prefixReroll: PrefixCommand = {
       const winners = Array.from(validParticipants.values()).sort(() => 0.5 - Math.random()).slice(0, 1);
       
       const embed = new EmbedBuilder()
-        .setTitle('🎉 REROLL GIVEAWAY')
+        .setTitle('<a:LV_giveaway1:1428329034525442150> GIVEAWAY REROLL <a:LV_giveaway1:1428329034525442150>')
         .setDescription(`**Người thắng mới:** ${winners.map(w => `<@${w.id}>`).join(', ')}`)
-        .setColor('#FFD700')
+        .setColor('#f46026')
         .setTimestamp();
 
       await message.reply({ embeds: [embed] });
@@ -200,9 +200,9 @@ export const prefixEndGiveaway: PrefixCommand = {
       const winners = Array.from(validParticipants.values()).sort(() => 0.5 - Math.random()).slice(0, 1);
       
       const embed = new EmbedBuilder()
-        .setTitle('🎉 GIVEAWAY KẾT THÚC')
+        .setTitle('<a:LV_giveaway1:1428329034525442150> GIVEAWAY KẾT THÚC <a:LV_giveaway1:1428329034525442150>')
         .setDescription(`**Người thắng:** ${winners.map(w => `<@${w.id}>`).join(', ')}\n\nChúc mừng! 🎊`)
-        .setColor('#FFD700')
+        .setColor('#f46026')
         .setTimestamp();
 
       await giveawayMessage.edit({ embeds: [embed] });
