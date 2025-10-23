@@ -50,10 +50,17 @@ export const prefixGiveaway: PrefixCommand = {
     const endDate = new Date(endTime);
 
     const embed = new EmbedBuilder()
-      .setTitle('🎉 GIVEAWAY BẮT ĐẦU 🎉')
-      .setDescription(`**Lửa Việt**\n\n**${content}** 🎫\n\n**Nhấn vào 🔥 để tham gia**\n\n**Đếm ngược:** <t:${Math.floor(endTime / 1000)}:R>\n**Tổ chức bởi:** <@${message.author.id}>\n\n**Giveaway với ${winners} giải · <t:${Math.floor(endTime / 1000)}:F>**`)
+      .setAuthor({ 
+        name: 'Lửa Việt', 
+        iconURL: message.guild?.iconURL() || undefined 
+      })
+      .setDescription(`## ${content} 🎫\n\n<:LV_orange:1410543066435162174> Nhấn <a:LV_fire:1413427579326824479> để tham gia\n<:LV_orange:1410543066435162174> Đếm ngược: <t:${Math.floor(endTime / 1000)}:R>\n<:LV_orange:1410543066435162174> Tổ chức bởi: <@${message.author.id}>`)
       .setColor('#8B5CF6')
       .setThumbnail(message.author.displayAvatarURL())
+      .setFooter({ 
+        text: `Giveaway với ${winners} giải · <t:${Math.floor(endTime / 1000)}:F>`, 
+        iconURL: message.guild?.iconURL() || undefined 
+      })
       .setTimestamp();
 
     if (requiredRole) {
